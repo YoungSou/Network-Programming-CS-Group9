@@ -1,6 +1,6 @@
 #  Distributed Text Processing System (C Version)
 
-## 📖 Overview
+##  Overview
 
 This project implements a distributed text processing system using TCP sockets in C.
 
