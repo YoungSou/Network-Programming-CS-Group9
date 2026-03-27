@@ -54,11 +54,9 @@ int main(int argc, char *argv[]) {
         char *data;
         recv_msg(client, &data);
 
-        // ===== RESET =====
         word_count = 0;
         int words_total = 0;
 
-        // ===== WORD COUNT =====
         char *copy_words = _strdup(data);
         char *token = strtok(copy_words, " \r\n\t");
 
@@ -70,7 +68,6 @@ int main(int argc, char *argv[]) {
 
         free(copy_words);
 
-        // ===== LINE COUNT (FIX WINDOWS \r\n) =====
         int lines = 0;
         char *copy_lines = _strdup(data);
         char *line = strtok(copy_lines, "\n");
@@ -82,7 +79,6 @@ int main(int argc, char *argv[]) {
 
         free(copy_lines);
 
-        // ===== BUILD RESULT =====
         char result[200000] = "";
         sprintf(result, "%d %d ", lines, words_total);
 
@@ -92,7 +88,6 @@ int main(int argc, char *argv[]) {
             strcat(result, temp);
         }
 
-        // ===== SEND BACK =====
         send_msg(client, result, strlen(result));
 
         free(data);
